@@ -18,6 +18,9 @@ void btReducedDeformableBodySolver::setGravity(const btVector3& gravity)
 void btReducedDeformableBodySolver::reinitialize(const btAlignedObjectArray<btSoftBody*>& bodies, btScalar dt)
 {
   m_softBodies.copyFromArray(bodies);
+        const btAlignedObjectArray<btReducedDeformableStaticConstraint> A = btAlignedObjectArray<btReducedDeformableStaticConstraint>();
+        const btAlignedObjectArray<btReducedDeformableNodeRigidContactConstraint> C = btAlignedObjectArray<btReducedDeformableNodeRigidContactConstraint>();
+
 	bool nodeUpdated = updateNodes();
 
 	if (nodeUpdated)
@@ -51,7 +54,17 @@ void btReducedDeformableBodySolver::reinitialize(const btAlignedObjectArray<btSo
 	}
 	for (int i = 0; i < N; ++i)
 	{
+		if (m_staticConstraints.size() <= i)
+		  {
+		    auto aref = A;
+		    m_staticConstraints.push_back(aref);
+		  }
 		m_staticConstraints[i].clear();
+		if (m_nodeRigidConstraints.size() <= i)
+		  {
+		    auto cref = C;
+		    m_nodeRigidConstraints.push_back(cref);
+		  }
 		m_nodeRigidConstraints[i].clear();
 		// m_faceRigidConstraints[i].clear();
 	}
