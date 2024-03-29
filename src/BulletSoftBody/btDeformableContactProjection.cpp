@@ -613,6 +613,12 @@ void btDeformableContactProjection::applyDynamicFriction(TVStack& f)
 
 void btDeformableContactProjection::reinitialize(bool nodeUpdated)
 {
+	const btAlignedObjectArray<btDeformableStaticConstraint> A = btAlignedObjectArray<btDeformableStaticConstraint>();
+	const btAlignedObjectArray<btDeformableNodeAnchorConstraint> B = btAlignedObjectArray<btDeformableNodeAnchorConstraint>();
+	const btAlignedObjectArray<btDeformableNodeRigidContactConstraint> C = btAlignedObjectArray<btDeformableNodeRigidContactConstraint>();
+	const btAlignedObjectArray<btDeformableFaceRigidContactConstraint> D = btAlignedObjectArray<btDeformableFaceRigidContactConstraint>();
+        const btAlignedObjectArray<btDeformableFaceNodeContactConstraint> E = btAlignedObjectArray<btDeformableFaceNodeContactConstraint>();
+
 	int N = m_softBodies.size();
 	if (nodeUpdated)
 	{
@@ -624,10 +630,35 @@ void btDeformableContactProjection::reinitialize(bool nodeUpdated)
 	}
 	for (int i = 0; i < N; ++i)
 	{
+		if (m_staticConstraints.size() <= i)
+		  {
+		    auto aref = A;
+		    m_staticConstraints.push_back(aref);
+		  }
 		m_staticConstraints[i].clear();
+		if (m_nodeRigidConstraints.size() <= i)
+		  {
+		    auto bref = B;
+		    m_nodeAnchorConstraints.push_back(bref);
+		  }
 		m_nodeAnchorConstraints[i].clear();
+		if (m_nodeRigidConstraints.size() <= i)
+		  {
+		    auto cref = C;
+		    m_nodeRigidConstraints.push_back(cref);
+		  }
 		m_nodeRigidConstraints[i].clear();
+		if (m_faceRigidConstraints.size() <= i)
+		  {
+		    auto dref = D;
+		    m_faceRigidConstraints.push_back(dref);
+		  }
 		m_faceRigidConstraints[i].clear();
+		if (m_deformableConstraints.size() <= i)
+		  {
+		    auto eref = E;
+		    m_deformableConstraints.push_back(eref);
+		  }
 		m_deformableConstraints[i].clear();
 	}
 #ifndef USE_MGS
