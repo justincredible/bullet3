@@ -120,8 +120,8 @@ void btReducedDeformableBody::setMassScale(const btScalar rho)
 
 void btReducedDeformableBody::setFixedNodes(const int n_node)
 {
-  m_fixedNodes.push_back(n_node);
-  m_nodes[n_node].m_im = 0;   // set inverse mass to be zero for the constraint solver.
+  //m_fixedNodes.push_back(n_node);
+  //m_nodes[n_node].m_im = 0;   // set inverse mass to be zero for the constraint solver.
 }
 
 void btReducedDeformableBody::setDamping(const btScalar alpha, const btScalar beta)
