@@ -1,0 +1,21 @@
+(gdb) bt
+#0  0x00007ffff7df4e88 in btReducedDeformableBody::setFixedNodes(int) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/src/BulletSoftBody/libBulletSoftBody.so.3.26
+#1  0x000055555583ef97 in Springboard::initPhysics() ()
+#2  0x00007ffff7e4363a in selectDemo(int) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/examples/ExampleBrowser/libBulletExampleBrowserLib.so.3.26
+#3  0x00007ffff7e4b51f in MyMenuItemHander::onButtonB(Gwen::Controls::Base*) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/examples/ExampleBrowser/libBulletExampleBrowserLib.so.3.26
+#4  0x00007ffff73c95a5 in Gwen::Event::Caller::Call(Gwen::Controls::Base*) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/examples/ThirdPartyLibs/Gwen/libgwen.so
+#5  0x00007ffff73c9e23 in Gwen::Input::OnMouseClicked(Gwen::Controls::Base*, int, bool) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/examples/ThirdPartyLibs/Gwen/libgwen.so
+#6  0x00007ffff7e4101a in MyMouseButtonCallback(int, int, float, float) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/examples/ExampleBrowser/libBulletExampleBrowserLib.so.3.26
+#7  0x00007ffff7c12836 in X11OpenGLWindow::pumpMessage() ()
+   from /home/justin/repos/forks/bullet3/build_cmake/examples/OpenGLWindow/libOpenGLWindow.so
+#8  0x00007ffff7c1291d in X11OpenGLWindow::startRendering() ()
+   from /home/justin/repos/forks/bullet3/build_cmake/examples/OpenGLWindow/libOpenGLWindow.so
+#9  0x00007ffff7e41860 in OpenGLExampleBrowser::update(float) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/examples/ExampleBrowser/libBulletExampleBrowserLib.so.3.26
+#10 0x00005555555f969c in main ()

@@ -1,0 +1,16 @@
+(gdb) bt
+#0  0x00007ffff7ddf4ca in btDeformableContactProjection::reinitialize(bool) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/src/BulletSoftBody/libBulletSoftBody.so.3.26
+#1  0x00007ffff7dc700c in btDeformableBackwardEulerObjective::reinitialize(bool, double) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/src/BulletSoftBody/libBulletSoftBody.so.3.26
+#2  0x00007ffff7e018b0 in btReducedDeformableBodySolver::reinitialize(btAlignedObjectArray<btSoftBody*> const&, double) () from /home/justin/repos/forks/bullet3/build_cmake/src/BulletSoftBody/libBulletSoftBody.so.3.26
+#3  0x00007ffff7de7c59 in btDeformableMultiBodyDynamicsWorld::reinitialize(double) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/src/BulletSoftBody/libBulletSoftBody.so.3.26
+#4  0x00007ffff7de985d in btDeformableMultiBodyDynamicsWorld::internalSingleStepSimulation(double) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/src/BulletSoftBody/libBulletSoftBody.so.3.26
+#5  0x00007ffff7de4675 in btDeformableMultiBodyDynamicsWorld::stepSimulation(double, int, double) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/src/BulletSoftBody/libBulletSoftBody.so.3.26
+#6  0x000055555583e1cd in ConservationTest::stepSimulation(float) ()
+#7  0x00007ffff7e41af7 in OpenGLExampleBrowser::update(float) ()
+   from /home/justin/repos/forks/bullet3/build_cmake/examples/ExampleBrowser/libBulletExampleBrowserLib.so.3.26
+#8  0x00005555555f969c in main ()
